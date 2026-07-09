@@ -1,6 +1,6 @@
 # Projeto de Microcontroladores
 
-Este projeto foi desenvolvido pelos alunos Matheus Fernandes, Matheus XXX e Pedro XXX como trabalho final da disciplina Microcontroladores, oferecida pela PUC-Rio no período letivo 2026.1.
+Este projeto foi desenvolvido pelos alunos Matheus Fernandes Dutra, Matheus Bueno Julião e Pedro Antero Simas de Oliveira como trabalho final da disciplina Microcontroladores, oferecida pela PUC-Rio no período letivo 2026.1.
 
 O objetivo do projeto foi desenvolver um veículo de controle remoto capaz de percorrer um circuito composto por diferentes obstáculos, projetados pelos grupos da disciplina ao longo do semestre. Para isso, foi necessário integrar sistemas de controle, comunicação sem fio e monitoramento em tempo real, resultando em um veículo capaz de realizar o percurso de forma eficiente e fornecer ao operador informações detalhadas sobre seu funcionamento.
 
