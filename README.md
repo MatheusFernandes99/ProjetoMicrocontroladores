@@ -65,8 +65,6 @@ O **Detector de Pino** é um sistema responsável por verificar a presença de u
 
 O obstáculo utiliza um sensor de proximidade para detectar a presença de um bloco (pino). Enquanto nenhum objeto é detectado, um LED vermelho permanece aceso, indicando ausência do bloco. Quando o sensor identifica a presença do objeto, o LED vermelho é apagado e um LED verde é acionado, sinalizando que o bloco foi detectado corretamente.
 
-Se o README for para o GitHub, essa versão fica mais parecida com a documentação de um projeto de engenharia e evita repetições, além de explicar melhor a lógica de funcionamento de cada obstáculo.
-
 ## Vídeo de Demonstração
 
 O funcionamento completo do projeto pode ser visto no vídeo disponível no link abaixo:
