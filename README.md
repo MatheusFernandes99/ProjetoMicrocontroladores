@@ -57,6 +57,8 @@ O **Radar Invertido de Velocidade** verifica se o veículo é capaz de atingir u
 
 Sempre que o Arduino é reiniciado, uma velocidade de referência é sorteada aleatoriamente. O sistema utiliza dois sensores de proximidade posicionados a uma distância conhecida entre si. Quando o veículo passa pelo primeiro sensor, o instante de passagem é registrado. Ao passar pelo segundo sensor, um novo instante é registrado e o tempo gasto para percorrer a distância entre os sensores é calculado.
 
+<img width="1590" height="1877" alt="Desafio 1_bb" src="https://github.com/user-attachments/assets/7761b22c-4223-4226-b0fb-30077e86acbd" />
+
 Com base nesses dados, a velocidade média do veículo é obtida pela razão entre a distância percorrida e o tempo de deslocamento. Caso a velocidade calculada seja superior à velocidade de referência sorteada, um LED verde é aceso, indicando sucesso no desafio. Caso contrário, um LED vermelho é acionado, indicando que o veículo não atingiu a velocidade mínima exigida.
 
 ### Detector de Pino
@@ -64,6 +66,8 @@ Com base nesses dados, a velocidade média do veículo é obtida pela razão ent
 O **Detector de Pino** é um sistema responsável por verificar a presença de um objeto em uma posição específica do percurso.
 
 O obstáculo utiliza um sensor de proximidade para detectar a presença de um bloco (pino). Enquanto nenhum objeto é detectado, um LED vermelho permanece aceso, indicando ausência do bloco. Quando o sensor identifica a presença do objeto, o LED vermelho é apagado e um LED verde é acionado, sinalizando que o bloco foi detectado corretamente.
+
+<img width="1348" height="1391" alt="Desafio 2_bb" src="https://github.com/user-attachments/assets/40fd4a4c-a15f-4d43-b9a9-4dce8477fc1d" />
 
 ## Vídeo de Demonstração
 
