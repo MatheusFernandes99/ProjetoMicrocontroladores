@@ -8,21 +8,21 @@
 int indexes[] = {3, 2, 1, 0};
 ShiftDisplay display(6, 7, 5, COMMON_ANODE, 4, true, indexes);
 
-GFButton sensorInicial (11); // Criando os sensores como botoes para chamar a funcao so uma vez
-GFButton sensorFinal (12);
+GFButton sensorInicial (38); // Criando os sensores como botoes para chamar a funcao so uma vez
+GFButton sensorFinal (39);
 unsigned long tempoInicial;
 unsigned long tempoFinal;
 
-float distancia = 10; // Distancia qualquer que pode ser trocada
+float distancia = 1.1; // Distancia qualquer que pode ser trocada
 
 float velocidadeCarro; // Velocidade do carrinho calculada com o sensor
 
-long velocidadeRadar; // Velocidade que o carrinho precisa alcancar
+float velocidadeRadar; // Velocidade que o carrinho precisa alcancar
 
 int sensorProximidadeBloco = 10; // Sensor para o desafio do bloco
 
-int ledParada = 3; // Leds para verificar o bloco
-int ledContinuar = 4;
+int ledParada = 50; // Leds para verificar o bloco
+int ledContinuar = 51;
 
 //Funcoes Auxiliares
 
@@ -32,15 +32,19 @@ void setup() {
   sensorInicial.setPressHandler(pegaTempoInicial); //Tratando os sensores como botão para facilitar a leitura
   sensorFinal.setPressHandler(pegaTempoFinalECalculaVelocidade);
 
-  display.update();
 
-  randomSeed(analogRead(0)); //Inicializa o randomizador de numeros para diferenciar entre execucoes
+  randomSeed(analogRead(A0)); //Inicializa o randomizador de numeros para diferenciar entre execucoes
+
+  long velocidadeEmLong = random(1, 3); // Escolhendo um valor aleatorio
+  velocidadeRadar = velocidadeEmLong / 10.0;
+  display.set(velocidadeRadar); // Colocar valor no display
+  display.update();
 
   pinMode(sensorProximidadeBloco, INPUT);
 
   pinMode(ledParada, OUTPUT);
   pinMode(ledContinuar, OUTPUT);
-  digitalWrite(ledParada, HIGH);
+  digitalWrite(ledParada, LOW);
   digitalWrite(ledContinuar, LOW);
 
 }
@@ -60,6 +64,16 @@ void pegaTempoFinalECalculaVelocidade(){
   Serial.print("Velocidade do Carro: "); // Print da Velocidade do Carro
   Serial.print(velocidadeCarro);
   Serial.println(" Metros por segundo");
+
+  if(velocidadeCarro >= velocidadeRadar){
+    digitalWrite(ledContinuar, HIGH);
+    digitalWrite(ledParada, LOW);
+  }
+
+  if(velocidadeCarro<velocidadeRadar){
+    digitalWrite(ledParada, HIGH);
+    digitalWrite(ledContinuar, LOW);
+  }
 }
 
 
@@ -74,7 +88,8 @@ void loop() {
     String textoPegarOutroValor = Serial.readStringUntil('\n'); // Pegar o texto para comparar
     textoPegarOutroValor.trim();
     if(textoPegarOutroValor == "outro"){ // Comparando para ver se o texto bate com o comando proposto
-      velocidadeRadar = random(1, 11); // Escolhendo um valor aleatorio
+      long velocidadeEmLong = random(1, 3); // Escolhendo um valor aleatorio
+      velocidadeRadar = velocidadeEmLong / 10.0;
       display.set(velocidadeRadar); // Colocar valor no display
       display.update();
     }
@@ -83,15 +98,5 @@ void loop() {
     }
   }
 
-  // Segundo Desafio
-  if(digitalRead(sensorProximidadeBloco) == 0){ // Verificacao do estado do Sensor
-    digitalWrite(ledParada, LOW); // Mudar os estados dos led caso veja o bloco na frente do sensor
-    digitalWrite(ledContinuar, HIGH);
-  }
-  else{
-    digitalWrite(ledParada, HIGH); // Muda os estados caso esteja sem o bloco
-    digitalWrite(ledContinuar, LOW);
-
-  }
 
 }
