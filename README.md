@@ -20,6 +20,8 @@ O veículo é equipado com os seguintes componentes:
 - LED indicador;
 - Estruturas mecânicas impressas em 3D.
 
+<img width="836" height="666" alt="Captura de tela 2026-07-09 211935" src="https://github.com/user-attachments/assets/a1b6a1a5-4232-4c5e-84f7-1d47bf3701d5" />
+
 Os motores com encoder permitem o controle da movimentação e a obtenção de informações de velocidade, enquanto o servo motor é responsável pelo acionamento da garra utilizada durante o percurso.
 
 ### Controlador
@@ -33,6 +35,8 @@ O controlador é composto pelos seguintes elementos:
 - Joystick para controle da velocidade e do sentido de deslocamento (frente e ré);
 - Botão para acionamento da garra instalada no veículo.
 
+<img width="780" height="631" alt="Captura de tela 2026-07-09 211757" src="https://github.com/user-attachments/assets/0850fcc1-60b8-4fc2-9d7f-9bc20498dc41" />
+
 Por meio desses dispositivos de entrada, o operador controla todos os movimentos do veículo em tempo real.
 
 ## Monitoramento em Tempo Real
@@ -42,6 +46,26 @@ Além de receber os comandos enviados pelo controlador, o veículo transmite con
 - **Lado direito:** Exibe informações detalhadas sobre as medições realizadas pelos sensores, bem como o estado de diferentes variáveis internas utilizadas pelo sistema de controle, auxiliando no monitoramento e no processo de debug do funcionamento do veículo.
 
 Essa interface fornece ao operador uma visão completa do estado do sistema durante toda a execução do percurso.
+
+## Obstáculos Desenvolvidos
+
+Além do veículo e do controlador, o grupo desenvolveu dois obstáculos que foram utilizados durante a competição da disciplina para avaliar o desempenho dos veículos construídos pelos diferentes grupos.
+
+### Radar Invertido de Velocidade
+
+O **Radar Invertido de Velocidade** verifica se o veículo é capaz de atingir uma velocidade mínima durante um trecho do percurso.
+
+Sempre que o Arduino é reiniciado, uma velocidade de referência é sorteada aleatoriamente. O sistema utiliza dois sensores de proximidade posicionados a uma distância conhecida entre si. Quando o veículo passa pelo primeiro sensor, o instante de passagem é registrado. Ao passar pelo segundo sensor, um novo instante é registrado e o tempo gasto para percorrer a distância entre os sensores é calculado.
+
+Com base nesses dados, a velocidade média do veículo é obtida pela razão entre a distância percorrida e o tempo de deslocamento. Caso a velocidade calculada seja superior à velocidade de referência sorteada, um LED verde é aceso, indicando sucesso no desafio. Caso contrário, um LED vermelho é acionado, indicando que o veículo não atingiu a velocidade mínima exigida.
+
+### Detector de Pino
+
+O **Detector de Pino** é um sistema responsável por verificar a presença de um objeto em uma posição específica do percurso.
+
+O obstáculo utiliza um sensor de proximidade para detectar a presença de um bloco (pino). Enquanto nenhum objeto é detectado, um LED vermelho permanece aceso, indicando ausência do bloco. Quando o sensor identifica a presença do objeto, o LED vermelho é apagado e um LED verde é acionado, sinalizando que o bloco foi detectado corretamente.
+
+Se o README for para o GitHub, essa versão fica mais parecida com a documentação de um projeto de engenharia e evita repetições, além de explicar melhor a lógica de funcionamento de cada obstáculo.
 
 ## Vídeo de Demonstração
 
