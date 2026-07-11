@@ -73,4 +73,4 @@ O obstáculo utiliza um sensor de proximidade para detectar a presença de um bl
 
 O funcionamento completo do projeto pode ser visto no vídeo disponível no link abaixo:
 
-**Link:** XXX
+**Link:** [XXX](https://youtu.be/vwnJGxTPm50)
